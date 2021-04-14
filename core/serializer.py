@@ -25,7 +25,6 @@ class PostCreateSerializer(serializers.ModelSerializer):
         model = Posts
         fields = ('conteudo', 'criado_por',)
 
-
     def create(self, validated_data):
         u = Posts.objects.create(
             criado_por=validated_data['criado_por'],
