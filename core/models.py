@@ -24,7 +24,8 @@ class Post(models.Model):
 
     @property
     def formt_criacao(self):
-        return 'Criado no dia {} ás {} horas,'.format(self.data_criacao, self.data_criacao.time())
+        return 'Criado na data de {}/{}/{} ás {} horas,'.format(self.data_criacao.day, self.data_criacao.month,
+                                                                self.data_criacao.year, self.data_criacao.time())
 
     def __str__(self):
         return self.conteudo

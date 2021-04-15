@@ -8,7 +8,7 @@ class UserListSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('email', 'first_name', 'last_name',
-                  'data_nascimento', 'telefone', 'cpf','id')
+                  'data_nascimento', 'telefone', 'cpf', 'id')
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
@@ -32,4 +32,4 @@ class UserCreateSerializer(serializers.ModelSerializer):
             password = validated_data.pop('password')
             instance.set_password(password)
         instance.username = validated_data.get('email', instance.email)
-        return super(UserCreateSerializer, self).update(instance, validated_data)        
+        return super(UserCreateSerializer, self).update(instance, validated_data)

@@ -8,7 +8,7 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 from users.models import User
 from users.serializer import UserCreateSerializer, UserListSerializer
 
-
+# Classe para controle, precisa configurar na URL para usar
 class ListUsersView(ListAPIView):
     "Listar todos os usuarios"
 
@@ -35,18 +35,3 @@ class UpdateUserView(UpdateAPIView):
     serializer_class = UserCreateSerializer
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = (permissions.IsAuthenticated,)
-
-
-# class UserListView(viewsets.ModelViewSet):
-
-#     queryset = User.objects.all()
-#     serializer_class = UserList
-#     authentication_classes = [SessionAuthentication, BasicAuthentication]
-#     permission_classes = (permissions.IsAuthenticated,)
-
-
-# class RegisterView(viewsets.ModelViewSet):
-
-#     queryset = User.objects.all()
-#     permission_classes = (permissions.AllowAny,)
-#     serializer_class = RegisterSerializer
