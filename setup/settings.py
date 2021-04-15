@@ -78,7 +78,6 @@ DATABASES = {
 }
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -127,7 +126,3 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
 }
-
-# curl http://127.0.0.1:8000/hello/ -H 'Authorization: Token c9a1ce4f57c9902311c82b99f740cb729cf79410'
-
-# curl post http://127.0.0.1:8000/api-token-auth/ username=vitor password=123

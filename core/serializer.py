@@ -2,7 +2,6 @@ from rest_framework import serializers
 from core.models import Post as Posts
 
 
-
 class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -13,11 +12,9 @@ class PostSerializer(serializers.ModelSerializer):
         representation = {
             'Conteúdo': instance.conteudo,
             'Autor': instance.criado_por.formt_nome,
-            'Data da criação': instance.formt_criacao,
-            'Ultima vez editado':
-         }
+            'Data da criação': instance.formt_criacao
+        }
         return representation
-
 
 
 class PostListSerializer(serializers.ModelSerializer):
@@ -25,7 +22,13 @@ class PostListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posts
         fields = ('conteudo', 'criado_por',)
-    
+
+    def to_representation(self, instance):
+        representation = {
+            'Conteúdo': instance.conteudo,
+            'Autor': instance.criado_por.formt_nome,
+        }
+        return representation
 
 
 class PostCreateSerializer(serializers.ModelSerializer):
@@ -44,3 +47,10 @@ class PostCreateSerializer(serializers.ModelSerializer):
         )
         u.save()
         return u
+
+    def to_representation(self, instance):
+        representation = {
+            'Conteúdo': instance.conteudo,
+            'Autor': instance.criado_por.formt_nome,
+        }
+        return representation
